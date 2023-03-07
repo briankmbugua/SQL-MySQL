@@ -80,12 +80,17 @@ that allow more than one SQL statement to be executed in the same call to the se
 - DROP INDEX - deletes an index
 
 # The SQL SELECT Statement
-The SELECT statement is used to select data from a database.  
+The <span style="color:red;">SELECT</span> statement is used to select data from a database.  
 The data returned is stored in a result table, called the result-set.
 # SELECT Syntax
 ```sql
 SELECT column1, column2, ...
 FROM table_name;
+```
+Here, column1, column2,...are fields names of the table you want to select data from.  
+If you want to select all the fields available in the table use the following syntax
+```sql
+SELECT * FROM table_name;
 ```
 
 
