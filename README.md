@@ -79,6 +79,15 @@ that allow more than one SQL statement to be executed in the same call to the se
 - CREATE INDEX - creates an index(search key)
 - DROP INDEX - deletes an index
 
+# The SQL SELECT Statement
+The SELECT statement is used to select data from a database.  
+The data returned is stored in a result table, called the result-set.
+# SELECT Syntax
+```sql
+SELECT column1, column2, ...
+FROM table_name;
+```
+
 
 
 
