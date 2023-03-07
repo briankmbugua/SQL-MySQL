@@ -45,7 +45,6 @@ with a specific field in a table.
 | Customer ID | CustomerName | ContanctName | Address | City   | PostalCode | Country |
 | ------------| -------------| ------------ | --------|------  |  ------    |-------- |
 |    1        |    Alfreds   | Maria Andres | Obere   | berlin |    12209   | Germany |
-| ------------|--------------|--------------|---------|--------|------------|---------|
 |    2        | Ana Trujilo  | Ana Trujilo  | Avda    | Mexico |    05021   | Mexico  |
 
 The table above contains two records(one for each customer) and seven columns(CustomerID  
@@ -53,7 +52,32 @@ The table above contains two records(one for each customer) and seven columns(Cu
 
 # SQL Statements
 
+Most actions you need to perform on the database are done with SQL statements.  
+The following SQL statement selects all the records in the "Customers" table:
+```sql
+SELECT * FROM Customers
+```
+# Keep in Mind That...
+- SQL keywords are NOT case sensitive: select is the same as SELECT it is  
+recommended you use uppper-case SQL statements
 
+# Semicolon after SQL Statements?
+Some databases require a semicolon at the end of each SQL statement.  
+Semicolon is the standard way to separate each SQL statement in the database systems  
+that allow more than one SQL statement to be executed in the same call to the server
+
+# Some of The Most Important SQL Commands
+- SELECT - extracts data from a database
+- UPDATE - updates data in a database
+- DELETE - deletes data from a database
+- INSERT INTO - insert new data into a database
+- CREATE DATABASE - creates a new database
+- ALTER DATABASE - modifies a database
+- CREATE TABLE - creates a new table
+- ALTER TABLE - modifies a database
+- DROP TABLE - deletes a table
+- CREATE INDEX - creates an index(search key)
+- DROP INDEX - deletes an index
 
 
 
