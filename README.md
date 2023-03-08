@@ -115,6 +115,46 @@ The following SQL statement lists the number of different(distinct) customer cou
 SELECT COUNT(DISTINCT Country) FROM Customers;
 ```
 
+# SQL WHERE Clause
+The <span style="color:red">WHERE</span> clause is used to filter records.
+It is used to extract only those records that fulfill a specified condition.
+# WHERE Syntax
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+> **Note**: The <span style="color:red">WHERE</span> clause is not only used in <span style="color:red">SELECT</span> statements, it also used in  
+><span style="color:red">UPDATE, DELETE</span>, etc.!
+# WHERE Clause Example
+The following SQL statement selects all the customers from the country "Mexico", in the  
+"Customers" table:
+```sql
+SELECT * FROM Customers
+WHERE Country='Mexico';
+```
+# Text Fields vs. Numeric Fields
+SQL requires single quotes around text values(most database systems will also allow double quotes).  
+However numeric fields should not be enclose in quotes
+```sql
+SELECT * FROM Customers
+WHERE Customer1D=1;
+```
+# Operators in The WHERE Clause
+The following operators can be used in the <span style="color:red">WHERE</span> clause:
+
+| Operator | Description                                |
+| -------  | -------------------------------------------|
+|  =       | Equal                                      |
+|  >       | Greator than                               |
+|  <       | Less than                                  |
+|  >=      | Greator than or equal                      |
+| <=       | Less than or equal                         |
+| <>       | Not equal. **Note:** in some versions of SQL this operator may be written as !=|
+| BETWEEN  | Between a certain range SELECT * FROM Products WHERE Price BETWEEN 50 AND 60;
+| lIKE     | Search for a pattern |
+| IN       | To specify multiple possible values for a column SELECT * FROM Customers WHERE City IN ('Paris','London');|
+     
 
 
 
