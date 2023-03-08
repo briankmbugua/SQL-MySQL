@@ -157,9 +157,30 @@ The following operators can be used in the <span style="color:red">WHERE</span> 
 
 # SQL AND, OR and NOT Operators
 The <span style="color:red">WHERE</span> clause can be combined with <span style="color:red">AND</span>, <span style="color:red">OR</span> and <span style="color:red">NOT</span> operators.
-     
+The <span style="color:red">AND</span> and <span style="color:red">OR</span> operators are used to filter records based on more than one condition:
+- The <span style="color:red">AND</span> operator displays a record if all the conditions separeted by <span style="color:red">AND</span> are TRUE
+- The <span style="color:red">OR</span> operator displays a record if any of the conditions separated by <span style="color:red">OR</span> is TRUE
 
+The <span style="color:red">NOT</span> operator displays a record if the condition(s) is NOT TRUE
 
+# AND Syntax
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+```
+# OR Syntax
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+```
+# NOT Syntax
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;
+```
 
 
 
