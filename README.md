@@ -194,7 +194,26 @@ OR 'Munchen':
 ```sql
 SELECT * FROM Customers
 WHERE City='Berlin' OR City='München';
-``
+```
+# NOT Example
+The following SQL statement selects all fields from "Customers" Where country is NOT "Germany"
+```sql
+SELECT * FROM Customers
+WHERE NOT Country='Germany'
+```
+# Combining AND, OR and NOT operators
+The following SQL statement selects all fields from "Customers" where country is "Germany" AND city must be "Berlin" OR "Munchen" We use parenthesis to form complex expressions
+
+```sql
+SELECT * FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='Munchen');
+```
+Select all fields from "Customers" Where country is NOT "Germany" AND NOT "USA"
+
+```sql
+SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
+```
 
 
 
