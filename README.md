@@ -46,6 +46,7 @@ with a specific field in a table.
 | ------------| -------------| ------------ | --------|------  |  ------    |-------- |
 |    1        |    Alfreds   | Maria Andres | Obere   | berlin |    12209   | Germany |
 |    2        | Ana Trujilo  | Ana Trujilo  | Avda    | Mexico |    05021   | Mexico  |
+|    3        | brian        | briank       | kiambu  | 0100   |    30433   | Kenya   |
 
 The table above contains two records(one for each customer) and seven columns(CustomerID  
 ,CustomerName, ContactName, Address, City, PostalCode, and Country).
