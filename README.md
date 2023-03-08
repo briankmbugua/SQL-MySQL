@@ -154,6 +154,9 @@ The following operators can be used in the <span style="color:red">WHERE</span> 
 | BETWEEN  | Between a certain range SELECT * FROM Products WHERE Price BETWEEN 50 AND 60;
 | lIKE     | Search for a pattern |
 | IN       | To specify multiple possible values for a column SELECT * FROM Customers WHERE City IN ('Paris','London');|
+
+# SQL AND, OR and NOT Operators
+The <span style="color:red">WHERE</span> clause can be combined with <span style="color:red">AND</span>, <span style="color:red">OR</span> and <span style="color:red">NOT</span> operators.
      
 
 
