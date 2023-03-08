@@ -181,7 +181,20 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE NOT condition;
 ```
-
+# AND Example
+The following SQL statement selects all fields from "Customers" Where country is
+"Germany" AND city is "Berlin"
+```sql
+SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+```
+# OR Example
+The following SQL statement selects all fields from 'Customers' where city is 'Berlin'
+OR 'Munchen':
+```sql
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+``
 
 
 
