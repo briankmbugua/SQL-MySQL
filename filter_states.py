@@ -8,7 +8,7 @@ if __name__ == '__main__':
     userInput = sys.argv[4]
     #create a cursor object
     c = db.cursor()
-    sql = f"SELECT id, name FROM states WHERE name='{userInput}'"
+    sql = f"SELECT id, name FROM states WHERE BINARY name LIKE '{userInput}'"
     c.execute(sql)
     for result in c.fetchall():
         print(result)

@@ -214,15 +214,152 @@ Select all fields from "Customers" Where country is NOT "Germany" AND NOT "USA"
 SELECT * FROM Customers
 WHERE NOT Country='Germany' AND NOT Country='USA';
 ```
+# SQL ORDER BY keyword
+Used to sort the result in ascending or descending order, sorts the records in asceding order by default for descending use <span style="color:red">DESC</span> keyword
+```sql
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2,...ASC|DESC; 
+```
+# SQL INSERT INTO Statement
+Use to insert new records in a table
+## INSERT INTO syntax
+Can be used in two ways
+- Specify both the column names and the values to be inserted:
+```sql
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+```
+- If your adding values to all the columns of the table, you do not need to specify the column name in the SQL query.Make sure the order of values is in the same order as the columns in the table
+```sql
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+```
+It's also possible to insert data in specific columns.
 
+# SQL NULL Values
+A field with a NULL value is a field with no value.Null is different from a zero value or a field that contains spaces.A field with a NULL value is one that has been left blank during record creation!
+## How to Test for NULL Values?
+It is not possible to test for NULL values with comparison operators
+We will have to use <span style="color:red">IS NULL</span> and <span style="color:red">IS NOT NULL</span> operators instead.
+## IS NULL Syntax
+```sql
+SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+```
+## IS NOT NULL Syntax
+```sql
+SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+```
+Always use IS NULL to look for NULL values.
 
+# The SQL UPDATE Statement
+The <span style="color:red">UPDATE</span> statement is use to modify the existing records in a table
+## UPDATE sysntax
+```sql
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+```
+The WHERE clause in the UPDATE statement specifies which record(s) should be updated.If you ommit the WHERE clause, all records in the table will be updated.
+### EXAMPLE
+```sql
+UPDATE customers
+SET name = 'alfred', city='Nairobi'
+WHERE CustomerID = 1;
+```
+# UPDATE Multiple Records
+It is the <span style="color:red">WHERE</span> clause that determines hom many records will be updated
 
+# SQL DELETE Statement
+used to delete existing records in a table
+# DELETE Syntax
+```sql
+DELETE FROM table_name WHERE condition;
+```
+If you ommit WHERE clause all records in the table will be deleted
 
+## Delete All Records
+It is possible to delete all rows in a table without deleting the table.This means that the table structure, attributes, and indexes will be intact
+```sql
+DELETE FROM table_name;
+```
+Example Delete all rows from the Customers table
+```sql
+DELETE FROM Customers;
+```
+# The SQL SELECT TOP Clause
+The SELECT TOP clause is used to specify the the number of records to return
+It is useful on large tables with thousands of records.
+Not all database systems support the SELECT TOP clause
+## MySQL Syntax
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+LIMIT number;
+```
+```sql
+SELECT * FROM Customers
+LIMIT 3;
+```
+```sql
+SELECT * FROM Customers
+WHERE Country='Germany'
+LIMIT 3;
+```
+# The SQL MIN() and MAX() Functions
+MIN() returns the smallest value of the selected column
+MAX() returns the largest value of the selected column
+## MIN() Syntax
+```sql
+SELECT MIN(column_name)
+FROM table_name
+WHERE condtion;
+```
+```sql
+## MAX() Syntax
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+```
 
-
-
-
-
+# The SQL COUNT(), AVG() and SUM() Functions
+COUNT() returns the number of rows that matches a specfied criterion
+## COUNT() Syntax
+```sql
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condtion;
+```
+## AVG() Syntax
+```sql
+SELECT AVG(column_name)
+FROM table_name
+WHERE condtion;
+```
+## SUM() Syntax
+```sql
+SELECT SUM(column_name)
+FROM table_name
+WHERE condtion;
+```
+# SQL LIKE Operator
+The LIKE operator is used in a WHERE clause to search for a specified pattern in a column
+There are two wildcards often used in conjuction with the LIKE operator
+ - (%) represents zero, one, or multiple characters
+ - The underscore sign(_) represents one, single character
+ The percent sign and the underscore can also be used in combinations
+ - LIKE 'a%'  starts with a
+ - LIKE '%a'  ends with a
+ - LIKE '%or%'  any values that have or in any position
+ - LIKE '_r%'   any values that have r in the second position
+ - LIKE 'a_%'   any values that start with a and at least 2 characters in length
+ - LIKE 'a__%'  any values that start with a and are atleast 3 characters in length
+ - LIKE 'a%o'   any values that start with a and ends with o
 
 
 
