@@ -360,7 +360,126 @@ There are two wildcards often used in conjuction with the LIKE operator
  - LIKE 'a_%'   any values that start with a and at least 2 characters in length
  - LIKE 'a__%'  any values that start with a and are atleast 3 characters in length
  - LIKE 'a%o'   any values that start with a and ends with o
+ # SQL Wildcards
+ A wildcard chracter is used to substitute one or more charcters in a string
+ They are used with LIKE operator.The LIKE operator is used in WHERE clause to search for a specified pattern in a column.
+ In MySQL the use of wildcard characters can impact query performance.Therefore it is recommended to use them judiciously and optimize queries as necessary.
 
+  - "%" (percent sign): Matches any sequence of zero or more characters. For example, "a%" matches any string that starts with "a", such as "apple", "apricot", and "alligator".
+
+  - "_" (underscore): Matches any single character. For example, "h_t" matches "hat", "hot", and "hit".
+
+  - "[]" (square brackets): Matches any single character within the brackets. For example, "[aeiou]" matches any vowel.
+
+  - "[^]" (caret inside square brackets): Matches any single character not within the brackets. For example, "[^aeiou]" matches any consonant.
+
+  - "*" (asterisk): Matches any sequence of zero or more characters, similar to the "%" wildcard.
+
+  - "?" (question mark): Matches any single character, similar to the "_" wildcard
+  ## IN MySQL
+  - "%" and "_" can be used with the LIKE operator to match one or more characters in a string. For example, the query "SELECT * FROM customers WHERE name LIKE 'J%'" will return all customers whose names start with the letter "J".
+
+  - The "[...]" and "[^...]" syntax can be used to match any character in a specific range or set. For example, the query "SELECT * FROM products WHERE name REGEXP '^[A-D].*$'" will return all products whose names start with the letters A, B, C, or D.
+
+  - MySQL also supports the "REGEXP" operator, which allows for more advanced pattern matching using regular expressions.
+
+  - In MySQL, the "%" and "_" wildcard characters can also be used with the "RLIKE" operator for regular expression pattern matching.
+ # SQL IN Operator
+ The IN operator allows you to specify multiple values in a WHERE clause
+ The IN operator is a shorthand for multiple OR conditions
+ ## IN Syntax
+ ```sql
+ SELECT column_name(s)
+ FROM table_name
+ WHERE column_name IN (value1, value2, ...);
+ ```
+ or
+
+ ```sql
+ SELECT column_name(s)
+ FROM table_name
+ WHERE column_name IN (SELECT STATEMENT);
+ ```
+ ### EXAMPLE
+ selects all customers that are located in germany, france or uk
+ ```sql
+ SELECT * FROM Customers
+ WHERE Country IN ('Germany', 'France', 'UK');
+```
+selects all customers that are  not located in germany, france or uk
+ ```sql
+ SELECT * FROM Customers
+ WHERE Country NOT IN ('Germany', 'France', 'UK');
+```
+
+selects all customers that are from the same countries as suppliers
+ ```sql
+ SELECT * FROM Customers
+ WHERE Country NOT IN (SELECT Country FROM Suppliers);
+```
+# The SQL BETWEEN Operator
+BETWEEN operator selects values within a given range.The values can be numbers, text or dates.
+The BETWEEN operator is inclusive: begin and end values are included
+
+# Syntax
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+```
+# Examples
+All products with a price between 10 nad 20
+```sql
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+```
+```sql
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+```
+All products with a price between 10 and 20 and not products with a categoryID of 1,2 or 3
+```sql
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND CategoryID NOT IN (1,2,3)
+```
+## BETWEEN Text Values
+all products with a productName Between Tigers and Giovanni
+```sql
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Tigers' AND 'Giovanni'
+ORDER BY ProductName
+```
+all products with a productName Not Between Tigers and Giovanni
+```sql
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Tigers' AND 'Giovanni'
+ORDER BY ProductName
+```
+## BETWEEN Dates
+```sql
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;
+```
+or
+
+```sql
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+```
+
+# SQL Aliases
+give a table or a column in a table a temporary name
+Alias Column Syntax
+```sql
+SELECT column_name AS alias_name
+FROM table_name;
+```
+Aliase Table Syntax
+```sql
+SELECT column_name(s)
+FROM table_name AS alias_name;
+```
 
 
 
