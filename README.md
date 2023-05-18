@@ -480,8 +480,198 @@ Aliase Table Syntax
 SELECT column_name(s)
 FROM table_name AS alias_name;
 ```
+# SQL Joins
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+## keyword
+OUTER is an optional keyword.
+# INNER JOIN
+The INNER JOIN keyword selects records that have matching values in both tables.
+## INNER JOIN SYNTAX
+```sql
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+```
+## EXAMPLE
+```sql
+SELECT * FROM Customer INNER JOIN City ON Customer.CityId=City.CityId;
+```
+CityId is the column that is similar on both tables.
+INNER JOIN is the most used
+
+# LEFT JOIN
+## LEFT JOIN Syntax
+```sql
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+In the syntax example it returns all records from the left table(table1), and matching records from the right table(table2).The result is 0 records from the right side, if there is no match.
+
+ Get all records from the left table and also everything that matches on both tables
+ We want everything that matches on both tables and everything that does not match in the left table.
+ ```sql
+ SELECT * FROM Customer LEFT JOIN City ON Customer.CityId=City.CityId;
+```
+The left tables is the table on the left side of the JOIN clause.
+
+# RIGHT JOIN
+
+## RIGHT JOIN Syntax
+```sql
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.
+
+ Get all columns from the right table and also everything that matches on both tables
+ We want everything that matches on both tables and everything that does not match in the right table.
+ ```sql
+ SELECT * FROM Customer RIGHT JOIN City ON Customer.CityId=City.CityId;
+```
+# FULL OUTER JOJN
+Get everything that matches on both tables but also everything that does not match from both tables.
+ ```sql
+ SELECT * FROM Customer FULL JOIN City ON Customer.CityId=City.CityId;
+```
+## FULL OUTER JOIN Syntax
+```sql
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condtion;
+```
+Returns all matching records from both tables whether the other table matches or not.
+
+## stored procedures
+This is a prepared SQL code that you can save, so the code can be reused over and over again
+### syntax
+```sql
+CREATE PROCEDURE procedure_name
+AS
+sql_statement
+GO;
+```
+### Executing a stored procedure
+```sql
+EXEC procedure_name;
+```
+### Stored procedure example
+Create a stored procedure named "SelectAllCustomers" that select all records from the "Customers" table
+```sql
+CREATE PROCEDURE SelectAllCustomers
+AS
+SELECT * FROM Customers
+GO;
+
+-- Execute the stored procedure as follows
+EXEC SelectAllCustomers;
+
+-- Stored procedure with one parameter
+CREATE PROCEDURE SelectAllCustomers @city nvarchar(30)
+AS
+SELECT * FROM Customers WHERE City = @City```
+
+-- Execute it as follows
+EXEC SelectAllCustomers @City = 'London';
+
+-- Stored procedure with Multiple parameters
+-- Setting up multipe parameters is very easy, just list each parameter and the data type separated by a comma
+-- select customers from a particular city with a particular postalcode from the customers table
+
+CREATE PROCEDURE SelectAllCustomers @City nvarchar(30),
+@PostalCode nvachar(10)
+AS
+SELECT * FROM Customers WHERE city = @city AND PostalCode = @PostalCode
+GO;
+
+-- Execute the statement as follows
+EXEC SelectAllCustomers @City = 'London', @Postalcode = 'WA11DP';
+```
+
+# SQL DATABASE
+```SQL
+-- create database statement
+CREATE DATABASE databasename;
+-- Deleting a database
+DROP DATABASE databasename;
+-- backup a database this creates a full backup of an existing database
+BACKUP DATABASE databasename
+TO DISK = 'filepath';
+-- backup with differential this back ups the parts of the database that have changed since the last full database backup.
+BACKUP DATABASE databasename
+TO DISK = 'filepath'
+WITH DIFFERENTIAL;
+ -- a differential backup reduces the back up time since only the changes are backed up
+
+-- create table
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    ...
+)
+
+-- Create Table Using Another Table
+-- a copy of an existing table can also be created using CREATE TABLE.The new table gets the same column definations.All columns or specific columns can be selected.if you create a new table using an existing table, the new table will be filled with the existing values from the old table.
+
+CREATE TABLE new_table_name AS
+     SELECT column1, column2, ...
+     FROM existing_table_name
+     WHERE ....;
+
+-- SQL DROP TABLE statement is used to drop an existing table in a database
+DROP TABLE table_name;
+-- this will result in loss of complete information stored in the table
+-- The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself
+TRUNCATE TABLE table_name;
 
 
+-- SQL ALTER TABLE Statement
+-- The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.It is also used to add and drop various constraints on an existing table.
+
+-- ALTER TABLE - ADD Column
+ALTER TABLE table_name
+ADD column_name datatype;
+
+-- ADD an "Email" column to the "Customers" table
+ALTER TABLE Customers
+ADD Email varchar(255);
+
+-- ALTER TABLE - DROP COLUMN
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+-- ALTER TABLE - RENAME COLUMN
+ALTER TABLE table_name
+RENAME COLUMN old_name to new_name;
 
 
+-- SQL Constraints
+-- SQL constraints are used to specify rules for data in a table. Constraints can be specified when the table is created with the CREATE TABLE statement, or after the table is created with the ALTER TABLE statement
+
+CREATE TABLE table_name (
+    column1 datatype constraint;
+    column2 datatype constraint;
+    column3 datatype constraint;
+    ....
+);
+```
+Constraints can be column level or table level constraints
+The following constraints are commonly used in SQL:
+- NOT NULL - ensures that a column cannot have a NULL value
+- UNIQUE - Ensures that all values in a column are different
+- PRIMARY KEY - A combination of NOT NULL and UNIQUE.Uniquely identifies each row in a table
+- FOREIGN KEY - Prevents actions that would destroy links between tables
+- CHECK - Ensures that values in a column satisfies a specif condtion
+- DEFAULT - Sets a default value for a column if no value is specified
+- CREATE INDEX - used to create and retrieve data from the database very quickly
+
+# SQL PRIMARY KEY Constraint
+The PRIMARY KEY constraint uniquely identifies each record in a table. Primary keys must contain UNIQUE val
 
