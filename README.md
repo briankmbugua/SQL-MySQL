@@ -725,3 +725,36 @@ ALTER TABLE nameOfTable
 ADD FOREIGN KEY (PersonID) REFERENCES ParentTable(PersonID);
 ```
 
+# SQL CREATE INDEX Statement
+The CREAT INDEX statement is used to create indexes in tables. Indexes are used to retrieve data from the database more quickly than otherwise.The users cannot see the indexes, they are just used to speed up searches/queries
+NB Updating a table with indexes takes more time than updating a table without since the indexes also need an update.So only create indexes on columns that will be frequently searched against
+
+## CREATE INDEX SYNTAX 
+```sql
+CREATE INDEX index_name
+ON table_name (column1, column2, ...)
+
+-- CREATE UNIQUE INDEX syntax
+-- create a unique index on a table. Duplicate values are not allowed:
+CREATE UNIQUE INDEX index_name
+ON table_name (Column1, Column2, ...);
+
+-- you can also drop an index
+DROP INDEX index_name ON table_name
+```
+
+# SQL AUTO INCREMENT Field
+Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table, Often this is the primary key field that we would like to be created automatically everytime a new record is inserted.
+
+## Syntax for MySQL
+```sql
+CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (Personid)
+);
+
+To let the AUTO_INCREMENT sequence start with another value, use the following SQL statement
+
+ALTER TABLE Persons AUTO_INCREMENT=100;
+```
+
