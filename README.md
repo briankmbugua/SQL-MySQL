@@ -673,5 +673,55 @@ The following constraints are commonly used in SQL:
 - CREATE INDEX - used to create and retrieve data from the database very quickly
 
 # SQL PRIMARY KEY Constraint
-The PRIMARY KEY constraint uniquely identifies each record in a table. Primary keys must contain UNIQUE val
+The PRIMARY KEY constraint uniquely identifies each record in a table. Primary keys must contain UNIQUE value and cannot contain NULL values.A table can have only ONE primary key, this primary key can consist of single or multiple columns (fields)
+
+## EXAMPLE
+```sql
+CREATE TABLE Employees (
+    EmployeeID INT,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    PRIMARY KEY (EmployeeID)
+);
+
+-- the EmployeeID column is defined as the primary key, the primary key consists of a single column(EmployeeID)
+
+-- Alternatively you can have a primary key composed of multiple columns
+CREATE TABLE Orders (
+    OrderID INT,
+    CustomerID INT,
+    OderDate DATE,
+    PRIMARY KEY (OrderID, CustomerID)
+);
+-- the orders table has a primary key defined with two columns OderID and CustomerID, this composite key ensures that each combination of OrderID and CustomerID value is unique within the Orders table
+
+```
+
+## SQL FOREIGN KEY Constraint
+The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table. The table with FOREIGN KEY is called the child table, and the table with the primary key is called the referenced table or parent table.
+```sql
+## FOREIGN KEY ON CREATE TABLE
+for MySQL
+### persons table
+CREATE TABLE Persons (
+    PRIMARY KEY (PersonID),
+    LastName VARCHAR(50),
+    FirstName VARCHAR(50),
+    Age int
+)
+### orders table
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+)
+```
+## SQL FOREIGN KEY on ALTER TABLE
+To create a foreign key constraint when a table has already been created
+```sql
+ALTER TABLE nameOfTable
+ADD FOREIGN KEY (PersonID) REFERENCES ParentTable(PersonID);
+```
 
