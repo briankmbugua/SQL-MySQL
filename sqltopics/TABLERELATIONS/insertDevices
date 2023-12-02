@@ -1,0 +1,46 @@
+USE company_db;
+
+-- insert into
+--     devices (model, make, owndate, emp_id)
+-- values
+--     ('Aspen', 'Chrysler', '2011-01-21', 5);
+-- insert into
+--     devices (model, make, owndate, emp_id)
+-- values
+--     ('Accent', 'Hyundai', '2007-01-17', 9);
+-- insert into
+--     devices (model, make, owndate, emp_id)
+-- values
+--     ('90', 'Audi', '2009-02-10', 3);
+-- insert into
+--     devices (model, make, owndate, emp_id)
+-- values
+--     ('Windstar', 'Ford', '2013-08-19', 6);
+-- insert into
+--     devices (model, make, owndate, emp_id)
+-- values
+--     ('Pilot', 'Honda', '2009-01-01', 11);
+insert into
+    devices (model, make, owndate, emp_id)
+values
+    ('Crown Victoria', 'Ford', '2014-02-23', 5);
+
+insert into
+    devices (model, make, owndate, emp_id)
+values
+    ('Bonneville', 'Pontiac', '2017-01-10', 11);
+
+insert into
+    devices (model, make, owndate, emp_id)
+values
+    ('CX-9', 'Mazda', '2008-11-23', 2);
+
+insert into
+    devices (model, make, owndate, emp_id)
+values
+    ('Corvair', 'Chevrolet', '2009-10-10', 1);
+
+insert into
+    devices (model, make, owndate, emp_id)
+values
+    ('S4', 'Audi', '2019-09-15', 8);

@@ -1,0 +1,15 @@
+USE PracticeDb;
+
+CREATE TABLE Persons(
+  Person_ID int NOT NULL PRIMARY KEY,
+  Name varchar(45) NOT NULL,
+  Age int,
+  City varchar(25)
+);
+
+CREATE TABLE Orders(
+  Order_ID int NOT NULL PRIMARY KEY,
+  Order_Num int NOT NULL,
+  Person_ID int,
+  FOREIGN KEY(Person_ID) REFERENCES Persons(Person_ID)
+);

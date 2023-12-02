@@ -1,0 +1,7 @@
+USE company_db;
+
+INSERT INTO
+    devices(model, make, owndate, emp_id)
+VALUES
+    ('Corvair', 'Chevrolet', '2009-10-10', 4),
+    ('S4', 'Audi', '2019-09-15', 5);

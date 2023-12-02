@@ -1,0 +1,84 @@
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (3, 'Social Worker', '1998-02-05', '2019-04-23');
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (5, 'Civil Engineer', '1998-06-04', '2020-06-21');
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (
+        10,
+        'Staff Scientist',
+        '1997-03-06',
+        '2021-01-07'
+    );
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (
+        4,
+        'VP Quality Control',
+        '1997-03-10',
+        '2020-04-25'
+    );
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (
+        2,
+        'Human Resources Assistant II',
+        '1997-08-17',
+        '2020-02-28'
+    );
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (
+        9,
+        'Human Resources Manager',
+        '1997-07-05',
+        '2020-01-18'
+    );
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (
+        1,
+        'Senior Cost Accountant',
+        '1998-10-19',
+        '2018-08-09'
+    );
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (
+        7,
+        'Database Administrator IV',
+        '1997-07-17',
+        '2019-11-17'
+    );
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (6, 'Professor', '1998-01-14', '2021-10-12');
+
+insert into
+    titles (emp_id, title, from_date, to_date)
+values
+    (
+        8,
+        'Financial Analyst',
+        '1999-09-21',
+        '2019-09-06'
+    );

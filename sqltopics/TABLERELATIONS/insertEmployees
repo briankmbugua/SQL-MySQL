@@ -1,0 +1,191 @@
+USE company_db;
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1966-04-14',
+        'Purcell',
+        'Madine',
+        '8346212810',
+        '2007-03-28',
+        'pmadine0@spotify.com'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1993-01-22',
+        'Izzy',
+        'Gribble',
+        '3301072422',
+        '2005-01-15',
+        'igribble1@mtv.com'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1970-01-20',
+        'Fey',
+        'Cuffley',
+        '4436832691',
+        '1999-04-04',
+        'fcuffley2@chron.com'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1970-03-09',
+        'Hillie',
+        'Othen',
+        '3811418681',
+        '2019-03-08',
+        'hothen3@nyu.edu'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1980-05-21',
+        'Randy',
+        'Lammertz',
+        '3799689105',
+        '2001-02-13',
+        'rlammertz4@imdb.com'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1982-02-05',
+        'Therine',
+        'Aubery',
+        '8881054012',
+        '2002-07-13',
+        'taubery5@woothemes.com'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1988-11-13',
+        'Gwenore',
+        'Blenkinship',
+        '9669448540',
+        '1998-09-03',
+        'gblenkinship6@businesswire.com'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1965-10-18',
+        'Dov',
+        'Anmore',
+        '9616126958',
+        '2015-08-15',
+        'danmore7@mediafire.com'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1986-04-15',
+        'Stephine',
+        'Mayzes',
+        '7343609349',
+        '2017-07-20',
+        'smayzes8@home.pl'
+    );
+
+insert into
+    employees (
+        dob,
+        first_name,
+        last_name,
+        phone,
+        join_date,
+        email
+    )
+values
+    (
+        '1979-04-03',
+        'Aron',
+        'Telfer',
+        '5992416826',
+        '2010-05-05',
+        'atelfer9@indiatimes.com'
+    );

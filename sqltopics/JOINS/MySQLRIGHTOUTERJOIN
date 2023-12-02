@@ -1,0 +1,13 @@
+USE PracticeDb;
+
+SELECT
+    Persons.Person_ID,
+    Persons.Name,
+    Persons.Age,
+    Persons.City,
+    Orders.Order_ID,
+    Orders.Order_Num,
+    Orders.Person_ID
+FROM
+    Persons
+    RIGHT OUTER JOIN Orders ON Persons.Person_ID = Orders.Person_ID;
