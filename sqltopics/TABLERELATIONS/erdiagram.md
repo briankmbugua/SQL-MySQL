@@ -31,8 +31,38 @@ Most fundamental building block of data.It's an indivisible piece of information
 ## Composite Atrribute
 Can be split into smaller, meaningful parts.E.g students fullname is a composite attribute comprising first name, middle name and last name.
 Address(street, city, country), date(day, month, year)
+## Derived attribute
+This type of attribute is not included in the physical database.Their values are derived from other attributes present in the database.E.g age should not be stored directly.Instead, it should be derived from D0B of that employee
+## Multivated attribute
+Multivated attributes can have more than one value.Example, a student can have more than one mobile number, email address.
 
 
+# Cardinality
+Defines the numerical attributes of the relationship between two entities or entity sets.
+## Different types of cardinal relationships
+- One-to-One Relationships
+- One-to-Many Relationships
+- Many-to-One Relationships
+- Many-to-Many Relationships
+## One-to-one:
+One entity from entity set X can be associated with at most one entity of entity set Y and vice versa
+
+Example:One student can register for numerous courses, However all those courses have a single line back to that one student.
+
+## One-to-many:
+One entity from entity set X can be associated with multiple entities of enitity set Y, but an entity from entity set Y can be associated with at least one entity.
+
+Example: One class is consisting of multiple students.
+
+## Many-to-One
+More than one entity from entity set X can be associated with at most one entity of entity set Y.However, an entity from entity set Y may or may not be associated with more than one entity from entity set X.
+
+Exmaple: Many students belong to the same class.
+
+## Many-to-Many
+One entity from X can be associated with more than one enitity from Y and vice versa.
+
+Example: Students as a group are associated with multiple faculty members, and faculty members can be associated with multiple students.
 
 
 - relationships: Depict how different entities are connected to each other.They show ho information flows between them.E.g a book can be written by an author(one-to-many).A member can borrow multiple books(many-to-many relationship)
