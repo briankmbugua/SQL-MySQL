@@ -1,0 +1,62 @@
+-- SCHEMA EMPLOYEE
+CREATE DATABASE IF NOT EXISTS company_db;
+
+CREATE SCHEMA IF NOT EXISTS `employee` DEFAULT CHARACTER SET utf8;
+
+USE company_db;
+
+-- Table `employee`
+CREATE TABLE IF NOT EXISTS `employees` (
+    `emp_id` INT NOT NULL AUTO_INCREMENT,
+    `dob` DATE NOT NULL,
+    `first_name` VARCHAR(45) NULL,
+    `last_name` VARCHAR(45) NULL,
+    `phone` VARCHAR(45) NULL,
+    `join_date` DATE NULL,
+    `email` VARCHAR(255) NULL,
+    PRIMARY KEY (`emp_id`),
+    UNIQUE INDEX `emp_id_UNIQUE` (`emp_id` ASC) VISIBLE,
+    UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE
+) ENGINE = InnoDB COMMENT = 'Employee personal details';
+
+-- Table `departments`
+CREATE TABLE IF NOT EXISTS `departments` (
+    `dep_id` INT NOT NULL AUTO_INCREMENT,
+    `dept_name` VARCHAR(45) NULL,
+    PRIMARY KEY (`dep_id`),
+    UNIQUE INDEX `dept_name_UNIQUE` (`dept_name` ASC) VISIBLE
+) ENGINE = InnoDB;
+
+-- Table devices
+CREATE TABLE IF NOT EXISTS `devices` (
+    `dev_id` INT NOT NULL AUTO_INCREMENT,
+    `model` VARCHAR(45) NULL,
+    `make` VARCHAR(45) NULL,
+    `owndate` DATE NULL,
+    `emp_id` INT NOT NULL,
+    PRIMARY KEY (`dev_id`),
+    INDEX `fk_devices_employees1_idx` (`emp_id` ASC) VISIBLE,
+    CONSTRAINT `fk_devices_employees1` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- Table `employees_has_departments`
+CREATE TABLE IF NOT EXISTS `employees_has_departments` (
+    `emp_id` INT NOT NULL,
+    `dep_id` INT NOT NULL,
+    PRIMARY KEY (`emp_id`, `dep_id`),
+    INDEX `fk_employees_has_departments_departments1_idx` (`dep_id` ASC) VISIBLE,
+    INDEX `fk_employees_has_departments_employees_idx` (`emp_id` ASC) VISIBLE,
+    CONSTRAINT `fk_employees_has_departments_employees` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT `fk_employees_has_departments_departments1` FOREIGN KEY (`dep_id`) REFERENCES `departments` (`dep_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- Table `title`
+CREATE TABLE IF NOT EXISTS `titles` (
+    `emp_id` INT NOT NULL,
+    `title` VARCHAR(45) NULL,
+    `from_date` DATE NULL,
+    `to_date` DATE NULL,
+    UNIQUE INDEX `title_UNIQUE` (`title` ASC) VISIBLE,
+    PRIMARY KEY (`emp_id`),
+    CONSTRAINT `fk_titles_employees1` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
